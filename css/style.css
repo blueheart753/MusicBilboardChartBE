@@ -5,6 +5,11 @@
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   transition: 0.5s;
   background: #232323;
@@ -26,10 +31,10 @@ header {
 }
 
 .showMent {
-  transition: 1.2s;
+  transition: 1.7s;
   font-size: 1.2em;
   display: flex;
-  margin-top: 500px;
+  margin: 450px 0;
   flex-direction: column;
   justify-content: center;
   opacity: 0;
@@ -37,11 +42,15 @@ header {
 }
 
 .showStart {
-  height: 200px;
+  transition: 1.4s;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  color: #232323;
+  margin-top: 675px;
+  margin-bottom: 0;
 }
 
 .showStart > button {

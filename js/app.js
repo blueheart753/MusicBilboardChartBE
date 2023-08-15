@@ -1,32 +1,27 @@
 let start;
 const fadeElements = document.querySelectorAll('.showMent');
 
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
+let obser = new IntersectionObserver(e => {
+  e.forEach(box => {
+    if (box.isIntersecting) {
+      box.target.style.opacity = 1;
     } else {
-      entry.target.style.opacity = '0';
+      box.target.style.opacity = 0;
     }
   });
 });
 
 fadeElements.forEach(el => {
-  fadeObserver.observe(el);
+  obser.observe(el);
 });
 
-const startElement = document.querySelector('.showStart');
+const showStart = document.querySelector('.showStart');
 
-const startObserver = new IntersectionObserver(entries => {
-  start = document.querySelector('.showStart');
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      start.setAttribute(
-        'style',
-        'background:#f5f5f7; height:300px; margin-top:300px',
-      );
-    }
+let startShowObser = new IntersectionObserver(e => {
+  e.forEach(box => {
+    box.target.style.height = '300px';
+    box.target.style.background = '#fff';
   });
 });
 
-startObserver.observe(startElement);
+startShowObser.observe(showStart);
