@@ -1,26 +1,110 @@
 const circle = document.querySelector('.container');
+const musicBox = document.querySelector('.musicBox');
+const showChart = document.querySelector('.showChart');
+const prev_nextBox = document.querySelector('.prev_next');
 
-function setCircleStyle(styles, delay) {
+let setCircleStyle = function (styles, delay) {
   setTimeout(() => {
     Object.assign(circle.style, styles);
   }, delay);
-}
+};
 
-setCircleStyle({ marginLeft: '47%' }, 500);
-setCircleStyle({ marginTop: '300px' }, 1000);
-setCircleStyle({ marginTop: '300px' }, 1500);
+let animateCircle = () => {
+  setCircleStyle({ marginLeft: '47%' }, 500);
+  setCircleStyle({ marginTop: '300px' }, 1000);
+  setCircleStyle({ marginTop: '300px' }, 1500);
 
-setCircleStyle(
-  {
-    borderRadius: '12px',
-    width: '80%',
-    height: '800px',
-    margin: '0 auto',
-  },
-  1600,
-);
+  setCircleStyle(
+    {
+      borderRadius: '12px',
+      width: '80%',
+      height: '800px',
+      margin: '0 auto',
+    },
+    1600,
+  );
+};
 
-const musicBox = document.querySelector('.musicBox');
-setTimeout(() => {
+let animateMusicBox = () => {
+  setTimeout(() => {
+    musicBox.setAttribute('style', 'opacity:1');
+  }, 2000);
+};
+
+let showChartAnime = () => {
+  setTimeout(() => {
+    musicBox.setAttribute('style', 'border-radius:50%;');
+
+    circle.setAttribute(
+      'style',
+      'width:80%; height:80vh; border-radius: 12px; margin:0 auto;',
+    );
+  }, 200);
+};
+
+animateCircle();
+animateMusicBox();
+let isAnimate = true;
+
+showChart.addEventListener('click', e => {
+  e.stopPropagation();
+  showChartAnime();
+  isAnimate = false;
+});
+
+circle.addEventListener('click', e => {
+  if (isAnimate) {
+    e.stopPropagation();
+  } else {
+    animateMusicBox();
+    isAnimate = true;
+  }
+});
+
+musicBox.addEventListener('click', e => {
+  e.stopPropagation();
+});
+
+// 건들지 말 것
+const prev = document.querySelector('.prev');
+const next = prev.nextElementSibling;
+
+let siteName = document.querySelector('.site_name');
+let siteNames = [
+  'Vibe',
+  'Youtube Music',
+  'Spotify',
+  'Melon',
+  'Genie',
+  'Bugs',
+  'Flo',
+  'Apple Music',
+];
+
+let siteNums = 0;
+
+let siteNameContent = function (siteNums) {
+  siteName.textContent = siteNames[siteNums];
+};
+
+prev.addEventListener('click', e => {
+  siteNums--;
+  if (siteNums < 0) {
+    siteNums = siteNames.length - 1;
+  }
+  siteNameContent(siteNums);
+});
+
+next.addEventListener('click', e => {
+  siteNums++;
+  if (siteNums >= siteNames.length) {
+    siteNums = 0;
+  }
+  siteNameContent(siteNums);
+});
+
+const reset = document.querySelector('.reset');
+
+reset.addEventListener('click', () => {
   musicBox.setAttribute('style', 'opacity:1');
-}, 2000);
+});
