@@ -37,7 +37,7 @@ let animateMusicBox = () => {
 
 let showChartAnime = () => {
   setTimeout(() => {
-    musicBox.setAttribute('style', 'border-radius:50%;');
+    musicBox.setAttribute('style', 'border-radius:50%; transform:scale(1.5)');
     circle.setAttribute(
       'style',
       'width:600px; height:860px; border-radius:12px; margin: 0px auto',
