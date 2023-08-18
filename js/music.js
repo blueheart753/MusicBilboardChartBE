@@ -40,7 +40,7 @@ let showChartAnime = () => {
     musicBox.setAttribute('style', 'border-radius:50%; transform:scale(1.5)');
     circle.setAttribute(
       'style',
-      'width:600px; height:860px; border-radius:12px; margin: 0px auto',
+      'width:700px; height:850px; border-radius:12px; margin: 0px auto',
     );
   }, 200);
   setTimeout(() => {
@@ -69,15 +69,6 @@ showChart.addEventListener('click', e => {
   e.stopPropagation();
   showChartAnime();
   isAnimate = false;
-});
-
-circle.addEventListener('click', e => {
-  if (isAnimate) {
-    e.stopPropagation();
-  } else {
-    animateMusicBox();
-    isAnimate = true;
-  }
 });
 
 musicBox.addEventListener('click', e => {
