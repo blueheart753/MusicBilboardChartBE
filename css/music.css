@@ -5,22 +5,29 @@
   background: #f5f5f5;
   transition: 1s;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   position: relative;
+}
+
+.siteTitle {
+  margin: 20px 0;
+  opacity: 0;
 }
 
 .musicBox {
   transition: 0.6s;
   width: 450px;
   height: 450px;
-  background: #b688ff;
+  background: #ed0b43;
   opacity: 0;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 999;
+  position: relative;
+  bottom: 100px;
 }
 
 .prev_next {
@@ -41,13 +48,13 @@
 
 .prev_next button:hover {
   transform: scale(2);
-  background: #a973ff;
+  background: #ed0b43;
   cursor: pointer;
 }
 
 .prev_next button:active {
   transform: scale(1.6);
-  background: #a973ff;
+  background: #ed0b43;
   cursor: pointer;
 }
 
@@ -64,7 +71,7 @@
   width: 150px;
   height: 60px;
   border: 0;
-  background: #875dfa;
+  background: #191414;
   border-radius: 12px;
   color: #f5f5f5;
   margin: 10px auto;
@@ -79,7 +86,7 @@
 
 .showChart:active {
   transform: scale(0.95);
-  background: #7950e7;
+  background: #191414;
 }
 
 .reset {
