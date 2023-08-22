@@ -9,6 +9,7 @@
   justify-content: space-around;
   align-items: center;
   position: relative;
+  margin: 0 auto;
 }
 
 .siteTitle {
