@@ -4,7 +4,8 @@ import time
 
 browser = webdriver.Chrome()
 browser.maximize_window()
-browser.get("https://www.coupang.com/?src=1139000&spec=10799999&addtag=900&ctag=HOME&lptag=AF2317737&itime=20230821080605&pageType=HOME&pageValue=HOME&wPcid=16868021035589500365516&wRef=&wTime=20230821080605&redirect=landing&traceid=V0-183-879dd1202e5c73b2&mcid=afe37db282854ff0bf688a86630666eb&placementid=&campaignid=&contentcategory=&imgsize=&tsource=&pageid=&deviceid=&token=&contenttype=&subid=enliplecp13&impressionid=&campaigntype=&newssource=&contentkeyword=&subparam=")
-time.sleep(20)
+browser.get("https://vibe.naver.com/chart")
+close = browser.find_element(By.CSS_SELECTOR,".ly_popup unsubscribe:nth-child(1)").click()
+# login = browser.find_element(By.CLASS_NAME,"link_login").click()
 
-browser.find_element(By.LINK_TEXT, "로켓직구").click()
+time.sleep(60)
