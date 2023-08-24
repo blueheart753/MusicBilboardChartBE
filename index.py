@@ -1,11 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC 
 import time
 
-browser = webdriver.Chrome()
-browser.maximize_window()
-browser.get("https://vibe.naver.com/chart")
-close = browser.find_element(By.CSS_SELECTOR,".ly_popup unsubscribe:nth-child(1)").click()
-# login = browser.find_element(By.CLASS_NAME,"link_login").click()
+driver = webdriver.Chrome()
 
+driver.get("https://vibe.naver.com/chart/total")
+driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {"source": """ Object.defineProperty(navigator, 'webdriver', { get: () => undefined }) """})
+
+
+elem = WebDriverWait(driver,1).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".link_text")))
+for elems in elem:  
+    print("곡명 : ",elems.text)
 time.sleep(60)
