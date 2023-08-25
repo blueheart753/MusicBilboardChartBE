@@ -7,10 +7,12 @@ import time
 driver = webdriver.Chrome()
 
 driver.get("https://vibe.naver.com/chart/total")
-driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {"source": """ Object.defineProperty(navigator, 'webdriver', { get: () => undefined }) """})
 
-
-elem = WebDriverWait(driver,1).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".link_text")))
-for elems in elem:  
-    print("곡명 : ",elems.text)
+songName = WebDriverWait(driver,1).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".title_badge_wrap")))
+count = 1
+for songNames in songName:  
+    print(count,"위 : ",songNames.text)
+    count += 1
+    if count == 100:
+        break
 time.sleep(60)
