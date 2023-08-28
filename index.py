@@ -13,6 +13,4 @@ count = 1
 for songNames in songName:  
     print(count,"위 : ",songNames.text)
     count += 1
-    if count == 100:
-        break
-time.sleep(60)
+time.sleep(0.05)
