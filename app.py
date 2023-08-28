@@ -25,6 +25,10 @@ app = Flask(__name__)
 def hello ():
   return render_template('index.html')
 
+@app.route("/musicChart")
+def chart():
+   return render_template("musicChart.html")
+
 if __name__ == '__main__':
     app.debug = True
     app.run()
