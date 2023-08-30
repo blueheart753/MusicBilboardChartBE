@@ -8,9 +8,18 @@ driver = webdriver.Chrome()
 
 driver.get("https://vibe.naver.com/chart/total")
 
-songName = WebDriverWait(driver,1).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".title_badge_wrap")))
-count = 1
-for songNames in songName:  
-    print(count,"위 : ",songNames.text)
-    count += 1
+def songsName() :
+    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,"tr > .song")))
+    # artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR," tr > .artist > .inner")))
+    count = 1
+
+    for song in songNames:
+        print(song.text,end='\n')
+
+
+
+print(songsName(),end='\n')
+
 time.sleep(0.05)
+
+driver.quit()
