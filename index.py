@@ -9,16 +9,23 @@ driver = webdriver.Chrome()
 driver.get("https://vibe.naver.com/chart/total")
 
 def songsName() :
-    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,"tr > .song")))
-    # artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR," tr > .artist > .inner")))
-    count = 1
+    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".link_text")))
 
     for song in songNames:
         print(song.text,end='\n')
 
+def artist() :
+    artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".link_artist")))
+    for Artists in artist:
+        print(Artists.text,end='\n')
 
+def count() :
+    count = 1
+    for countUp in range(100):
+        countUp+=count
+        print(countUp)
+count()
 
-print(songsName(),end='\n')
 
 time.sleep(0.05)
 
