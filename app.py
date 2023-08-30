@@ -1,15 +1,16 @@
 from fastapi import FastAPI
-from fastapi.responses import StreamingResponse
-from fastapi import Request
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-import pymysql
-from pydantic import BaseModel
 
-templates = Jinja2Templates(directory="templates")
-app = FastAPI(docs_url="/documentation", redoc_url=None)
- 
+app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+from fastapi.responses import FileResponse
+
 @app.get("/")
-async def home(request: Request):
-    return templates.TemplateResponse("index.html",{"request":request})
+def index():
+    return FileResponse("templates/index.html")
+
+@app.get("/musicChart")
+def musicChart():
+    return FileResponse("templates/musicChart.html")
