@@ -1,34 +1,15 @@
-from flask import Flask,render_template
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC 
-import time
+from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
+from fastapi import Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+import pymysql
+from pydantic import BaseModel
 
-def vibe():
-  driver = webdriver.Chrome()
-
-  driver.get("https://vibe.naver.com/chart/total")
-
-  songName = WebDriverWait(driver,1).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".title_badge_wrap")))
-  count = 1
-  for songNames in songName:  
-      print(count,"위 : ",songNames.text)
-      count += 1
-      if count == 100:
-          break
-  time.sleep(60)
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello ():
-  return render_template('index.html')
-
-@app.route("/musicChart")
-def chart():
-   return render_template("musicChart.html")
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run()
+templates = Jinja2Templates(directory="templates")
+app = FastAPI(docs_url="/documentation", redoc_url=None)
+ 
+@app.get("/")
+async def home(request: Request):
+    return templates.TemplateResponse("index.html",{"request":request})
