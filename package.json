@@ -1,0 +1,22 @@
+{
+  "name": "musicbilboardchart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blueheart753/MusicBilboardChart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blueheart753/MusicBilboardChart/issues"
+  },
+  "homepage": "https://github.com/blueheart753/MusicBilboardChart#readme",
+  "dependencies": {
+    "python-shell": "^5.0.0"
+  }
+}
