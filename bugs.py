@@ -28,7 +28,6 @@ def count() :
 songsName()
 artist()
 
-
 time.sleep(0.05)
 
 driver.quit()
