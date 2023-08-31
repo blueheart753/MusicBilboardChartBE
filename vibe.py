@@ -4,29 +4,30 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 import time
 
-driver = webdriver.Chrome()
+def vibe() :
+    driver = webdriver.Chrome()
 
-driver.get("https://vibe.naver.com/chart/total")
+    driver.get("https://vibe.naver.com/chart/total")
 
-def songsName() :
-    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".link_text")))
+    def songsName() :
+        songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".link_text")))
 
-    for song in songNames:
-        print(song.text,end='\n')
+        for song in songNames:
+            print(song.text,end='\n')
 
-def artist() :
-    artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".link_artist")))
-    for Artists in artist:
-        print(Artists.text,end='\n')
+    def artist() :
+        artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".link_artist")))
+        for Artists in artist:
+            print(Artists.text,end='\n')
 
-def count() :
-    count = 1
-    for countUp in range(100):
-        countUp+=count
-        print(countUp)
-count()
+    def count() :
+        count = 1
+        for countUp in range(100):
+            countUp+=count
+            print(countUp)
+    count()
 
 
-time.sleep(0.05)
+    time.sleep(0.05)
 
-driver.quit()
+    driver.quit()

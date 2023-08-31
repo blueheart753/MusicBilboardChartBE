@@ -71,7 +71,7 @@ showChart.addEventListener('click', e => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      siteName: 'Vibe',
+      siteName: siteNames[siteNums],
     }),
   })
     .then(response => response.json())
@@ -177,11 +177,3 @@ const siteColor = function (siteNums) {
       break;
   }
 };
-// 'Vibe',
-// 'Youtube Music',
-// 'Spotify',
-// 'Melon',
-// 'Genie',
-// 'Bugs',
-// 'Flo',
-// 'Apple Music',
