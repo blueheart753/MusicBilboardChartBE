@@ -98,6 +98,5 @@ class siteName(BaseModel):
     siteName : str
 
 @app.post("/musicChart")
-def musicSite(data:siteName):
-    print(data)
-    return 
+async def musicSite(data:siteName):
+    return print(await data)
