@@ -26,7 +26,8 @@ def vibe() :
             countUp+=count
             print(countUp)
     count()
-
+    songsName()
+    artist()
 
     time.sleep(0.05)
 
