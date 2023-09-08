@@ -6,17 +6,17 @@ import time
 
 driver = webdriver.Chrome()
 
-driver.get("https://open.spotify.com/playlist/37i9dQZEVXbNxXF4SkHj9F")
+driver.get("https://kworb.net/spotify/country/global_daily.html")
 
 
 def songsName() :
-    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".t_yrXoUO3qGsJS4Y6iXX")))
+    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".mp>div>a:nth-child(2)")))
 
     for song in songNames:
         print(song.text,end='\n')
 
 def artist() :
-    artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".rq2VQ5mb9SDAFWbBIUIn")))
+    artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".mp>div>a:nth-child(1)")))
     for Artists in artist:
         print(Artists.text,end='\n')
 

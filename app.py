@@ -18,7 +18,9 @@ def findSong(siteName):
         songNamesSelector = '.link_text'
         ArtistNameSelector = '.link_artist'
     elif siteName == 'Spotify':
-        siteURL = 'https://open.spotify.com/playlist/37i9dQZEVXbNxXF4SkHj9F'
+        siteURL = 'https://kworb.net/spotify/country/global_daily.html'
+        songNamesSelector = '.mp>div>a:nth-child(2)'
+        ArtistNameSelector = '.mp>div>a:nth-child(1)'
     elif siteName == 'Melon':
        siteURL = 'https://www.melon.com/chart/index.htm'
        songNamesSelector = '.wrap_song_info > .rank01 > span > a'
@@ -33,12 +35,15 @@ def findSong(siteName):
         ArtistNameSelector = '.artist > a'
     elif siteName == 'Flo':
         siteURL = 'https://www.music-flo.com/browse'
-        songNamesSelector = '.tit__text'
-        ArtistNameSelector = '.artist__link'
+        songNamesSelector = '.divTableCell:nth-child(5)'
+        ArtistNameSelector = '.divTableCell:nth-child(4)'
     elif siteName == 'Apple Music' :
         siteURL = 'https://music.apple.com/kr/playlist/%EC%98%A4%EB%8A%98%EC%9D%98-top-100-%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD/pl.d3d10c32fbc540b38e266367dc8cb00c'
         songNamesSelector = '.songs-list-row__song-name'
         ArtistNameSelector = '.click-action'
+    elif siteName == 'Youtube Music' :
+        siteURL = 'https://www.youtube.com/watch?v=QU9c0053UAU&list=PL4fGSI1pDJn6jXS_Tv_N9B8Z0HTRVJE0m&index=2'
+        songNamesSelector = '.ytd-playlist-panel-renderer>.playlist-items>#meta>span'
     driver.get(siteURL)
 
     def songsName() :

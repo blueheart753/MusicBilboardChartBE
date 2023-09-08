@@ -6,18 +6,18 @@ import time
 
 driver = webdriver.Chrome()
 
-driver.get("https://music.bugs.co.kr/chart")
+driver.get("https://charts.youtube.com/charts/TopSongs/kr?hl=ko")
 
 def songsName() :
-    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".title > a")))
+    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".title-cell > .entity-title > span")))
 
     for song in songNames:
         print(song.text,end='\n')
 
-def artist() :
-    artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".artist > a")))
-    for Artists in artist:
-        print(Artists.text,end='\n')
+# def artist() :
+#     artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".artist > a")))
+#     for Artists in artist:
+#         print(Artists.text,end='\n')
 
 def count() :
     count = 1
@@ -25,8 +25,8 @@ def count() :
         countUp+=count
         print(countUp)
 
-songsName()
-artist()
+songsName() 
+# artist()
 
 time.sleep(0.05)
 

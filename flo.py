@@ -8,21 +8,17 @@ driver = webdriver.Chrome()
 
 wait = WebDriverWait(driver, 10)
 
-driver.get("https://www.music-flo.com/browse")
-
-more_link = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn_list_more")))
-time.sleep(2)
-more_link.click()
+driver.get("https://whostan.com/Flochart")
 
 
 def songsName() :
-    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".tit__text")))
+    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".divTableCell:nth-child(5)")))
 
     for song in songNames:
         print(song.text,end='\n')
 
 def artist() :
-    artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".artist__link")))
+    artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".divTableCell:nth-child(4)")))
     for Artists in artist:
         print(Artists.text,end='\n')
 
@@ -32,6 +28,7 @@ def count() :
         countUp+=count
         print(countUp)
 songsName()
+print("\n")
 artist()
 # count()
 

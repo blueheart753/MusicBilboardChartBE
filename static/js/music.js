@@ -54,6 +54,7 @@ let siteNames = [
   'Bugs',
   'Flo',
   'Apple Music',
+  'Youtube Music',
 ];
 let siteNums = 0;
 
@@ -166,6 +167,14 @@ const siteColor = function (siteNums) {
       prev.style.background = '#fa243c';
       reset.style.background = '#fa243c';
       showChart.style.background = '#191414';
+      break;
+
+    case 7:
+      musicBox.setAttribute('style', 'background:#FF0000; opacity:1;');
+      next.style.background = '#FF0000';
+      prev.style.background = '#FF0000';
+      reset.style.background = '#FF0000';
+      showChart.style.background = '#000000';
       break;
 
     default:

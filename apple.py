@@ -6,19 +6,14 @@ import time
 
 driver = webdriver.Chrome()
 
-driver.get("https://music.apple.com/kr/playlist/%EC%98%A4%EB%8A%98%EC%9D%98-top-100-%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD/pl.d3d10c32fbc540b38e266367dc8cb00c")
+driver.get("https://www.youtube.com/watch?v=QU9c0053UAU&list=PL4fGSI1pDJn6jXS_Tv_N9B8Z0HTRVJE0m&index=2")
 
 
 def songsName() :
-    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".songs-list-row__song-name")))
+    songNames = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".ytd-playlist-panel-video-renderer")))
 
     for song in songNames:
         print(song.text,end='\n')
-
-def artist() :
-    artist = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,".click-action")))
-    for Artists in artist:
-        print(Artists.text,end='\n')
 
 def count() :
     count = 1
@@ -26,7 +21,6 @@ def count() :
         countUp+=count
         print(countUp)
 songsName()
-artist()
 # count()
 
 
