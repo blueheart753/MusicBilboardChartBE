@@ -4,8 +4,8 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
-  Put,
 } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { BookEntity } from './entities/book.entity';
@@ -29,7 +29,7 @@ export class BooksController {
     return this.booksService.findOne(+id);
   }
 
-  @Put(':id')
+  @Patch(':id')
   async update(
     @Param('id') id: string,
     @Body() book: BookEntity,

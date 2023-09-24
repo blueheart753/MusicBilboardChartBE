@@ -21,6 +21,7 @@ export class BooksService {
   }
 
   async findOne(id: number): Promise<BookEntity> {
+    console.log(typeof id);
     return await this.booksRepository.findOne({
       where: {
         id,

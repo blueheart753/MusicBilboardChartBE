@@ -12,10 +12,10 @@ export class BookEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ default: 'default value' })
   songName: string;
 
-  @Column()
+  @Column({ default: 'no artist' })
   Artist: string;
 
   @CreateDateColumn()
