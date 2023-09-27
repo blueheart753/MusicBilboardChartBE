@@ -24,10 +24,10 @@ export class MelonsController {
     return this.melonsService.findAll();
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: string): Promise<MelonsEntity> {
-    return this.melonsService.findOne(+id);
-  }
+  // @Get(':id')
+  // async findOne(@Param('id') id: string): Promise<MelonsEntity> {
+  //   return this.melonsService.findOne(+id);
+  // }
 
   @Patch(':id')
   async update(
