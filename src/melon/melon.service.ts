@@ -19,9 +19,9 @@ export class MelonsService {
     return this.melonsRepository.find();
   }
 
-  async findOne(id: number): Promise<MelonsEntity> {
-    return await this.melonsRepository.findOne(id);
-  }
+  // async findOne(id: number): Promise<MelonsEntity> {
+  //   return await this.melonsRepository.findOne(id);
+  // }
 
   async update(id: number, melon: MelonsEntity): Promise<number> {
     await this.melonsRepository.update(id, melon);
