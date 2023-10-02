@@ -1,11 +1,7 @@
 {
   "name": "test",
   "version": "0.0.1",
-<<<<<<< HEAD
-  "description": "<p align=\"center\">   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo-small.svg\" width=\"200\" alt=\"Nest Logo\" /></a> </p>",
-=======
-  "description": "<p align=\"center\">\r   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo-small.svg\" width=\"200\" alt=\"Nest Logo\" /></a>\r </p>",
->>>>>>> 80937a7f8e5c4cb7f36337a81454813439d2e34c
+  "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -73,9 +69,5 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  },
-  "main": ".eslintrc.js",
-  "directories": {
-    "test": "test"
   }
 }
