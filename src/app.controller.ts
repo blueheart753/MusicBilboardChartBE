@@ -10,8 +10,18 @@ export class AppController {
     return this.appService.getHome();
   }
 
+  @Get('/vibe')
+  getVibe(): string {
+    return this.appService.getVibe();
+  }
+
   @Get('/melon')
-  getHello(): string {
+  getMelon(): string {
+    return this.appService.getMelon();
+  }
+
+  @Get('/')
+  getHome(): string {
     return this.appService.getHello();
   }
 }

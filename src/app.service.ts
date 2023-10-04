@@ -6,7 +6,15 @@ export class AppService {
     return 'hello';
   }
 
+  getMelon(): string {
+    return 'Hello melon';
+  }
+
+  getVibe(): string {
+    return 'Hello vibe';
+  }
+
   getHome(): string {
-    return 'home';
+    return 'Hello Home';
   }
 }
