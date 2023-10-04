@@ -20,6 +20,11 @@ export class AppController {
     return this.appService.getMelon();
   }
 
+  @Get('/apple')
+  getApple(): string {
+    return this.appService.getApple();
+  }
+
   @Get('/')
   getHome(): string {
     return this.appService.getHello();

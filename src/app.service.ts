@@ -14,6 +14,10 @@ export class AppService {
     return 'Hello vibe';
   }
 
+  getApple(): string {
+    return 'Hello AppleMusic';
+  }
+
   getHome(): string {
     return 'Hello Home';
   }

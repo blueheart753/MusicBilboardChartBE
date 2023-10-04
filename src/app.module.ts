@@ -8,6 +8,8 @@ import { MelonsEntity } from './melon/entities/melon.entity';
 import { MelonsModule } from './melon/melon.module';
 import { VibesEntity } from './vibe/entities/vibe.entity';
 import { VibesModule } from './vibe/vibe.module';
+import { ApplesEntity } from './appleMusic/entities/apple.entity';
+import { ApplesModule } from './appleMusic/apple.module';
 
 @Module({
   imports: [
@@ -18,12 +20,13 @@ import { VibesModule } from './vibe/vibe.module';
       username: 'root',
       password: '1234',
       database: 'testDB',
-      entities: [BookEntity, MelonsEntity, VibesEntity],
+      entities: [BookEntity, MelonsEntity, VibesEntity, ApplesEntity],
       synchronize: true,
     }),
     BooksModule,
     MelonsModule,
     VibesModule,
+    ApplesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
