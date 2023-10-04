@@ -7,38 +7,38 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { MelonsService } from './vibe.service';
-import { MelonsEntity } from './entities/vibe.entity';
+import { VibesService } from './vibe.service';
+import { VibesEntity } from './entities/vibe.entity';
 
 @Controller('melon')
-export class MelonsController {
-  constructor(private melonsService: MelonsService) {}
+export class VibesController {
+  constructor(private vibesService: VibesService) {}
 
   @Post()
-  async create(@Body() melon: MelonsEntity): Promise<MelonsEntity> {
-    return await this.melonsService.create(melon);
+  async create(@Body() vibe: VibesEntity): Promise<VibesEntity> {
+    return await this.vibesService.create(vibe);
   }
 
   @Get()
-  async findAll(): Promise<MelonsEntity[]> {
-    return this.melonsService.findAll();
+  async findAll(): Promise<VibesEntity[]> {
+    return this.vibesService.findAll();
   }
 
   // @Get(':id')
-  // async findOne(@Param('id') id: string): Promise<MelonsEntity> {
-  //   return this.melonsService.findOne(+id);
+  // async findOne(@Param('id') id: string): Promise<VibesEntity> {
+  //   return this.vibesService.findOne(+id);
   // }
 
   @Patch(':id')
   async update(
     @Param('id') id: string,
-    @Body() melon: MelonsEntity,
+    @Body() vibe: VibesEntity,
   ): Promise<number> {
-    return this.melonsService.update(+id, melon);
+    return this.vibesService.update(+id, vibe);
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<number> {
-    return this.melonsService.remove(+id);
+    return this.vibesService.remove(+id);
   }
 }

@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { MelonsService } from './vibe.service';
-import { MelonsController } from './vibe.controller';
-import { MelonsEntity } from './entities/vibe.entity';
+import { VibesService } from './vibe.service';
+import { VibesController } from './vibe.controller';
+import { VibesEntity } from './entities/vibe.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([MelonsEntity])],
-  controllers: [MelonsController],
-  providers: [MelonsService],
+  imports: [TypeOrmModule.forFeature([VibesEntity])],
+  controllers: [VibesController],
+  providers: [VibesService],
 })
-export class MelonsModule {}
+export class VibesModule {}

@@ -6,6 +6,8 @@ import { BooksModule } from './books/books.module';
 import { BookEntity } from './books/entities/book.entity';
 import { MelonsEntity } from './melon/entities/melon.entity';
 import { MelonsModule } from './melon/melon.module';
+import { VibesEntity } from './vibe/entities/vibe.entity';
+import { VibesModule } from './vibe/vibe.module';
 
 @Module({
   imports: [
@@ -16,11 +18,12 @@ import { MelonsModule } from './melon/melon.module';
       username: 'root',
       password: '1234',
       database: 'testDB',
-      entities: [BookEntity, MelonsEntity],
+      entities: [BookEntity, MelonsEntity, VibesEntity],
       synchronize: true,
     }),
     BooksModule,
     MelonsModule,
+    VibesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
