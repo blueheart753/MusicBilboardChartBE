@@ -14,4 +14,9 @@ export class AppController {
   getVibe(): string {
     return this.appService.getVibe();
   }
+
+  @Get('/melon')
+  getMelon(): string {
+    return this.appService.getMelon();
+  }
 }
