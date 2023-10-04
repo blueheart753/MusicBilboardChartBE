@@ -19,4 +19,9 @@ export class AppController {
   getMelon(): string {
     return this.appService.getMelon();
   }
+
+  @Get('/')
+  getHome(): string {
+    return this.appService.getHello();
+  }
 }
