@@ -15,6 +15,6 @@ export class AppService {
   }
 
   getHome(): string {
-    return 'home';
+    return 'Hello Home';
   }
 }
