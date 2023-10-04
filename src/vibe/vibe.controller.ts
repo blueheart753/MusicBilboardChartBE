@@ -10,7 +10,7 @@ import {
 import { VibesService } from './vibe.service';
 import { VibesEntity } from './entities/vibe.entity';
 
-@Controller('melon')
+@Controller('vibe')
 export class VibesController {
   constructor(private vibesService: VibesService) {}
 
