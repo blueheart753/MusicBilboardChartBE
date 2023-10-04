@@ -13,10 +13,10 @@ export class MelonsEntity {
   id: number;
 
   @Column()
-  songName: string;
+  Artist: string;
 
   @Column()
-  Artist: string;
+  songName: string;
 
   @CreateDateColumn()
   createdAt: Date;
