@@ -25,6 +25,11 @@ export class AppController {
     return this.appService.getApple();
   }
 
+  @Get('/flo')
+  getFlo(): string {
+    return this.appService.getFlo();
+  }
+
   @Get('/')
   getHome(): string {
     return this.appService.getHello();

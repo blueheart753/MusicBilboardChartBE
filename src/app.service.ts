@@ -18,6 +18,10 @@ export class AppService {
     return 'Hello AppleMusic';
   }
 
+  getFlo(): string {
+    return 'Hello Flo';
+  }
+
   getHome(): string {
     return 'Hello Home';
   }

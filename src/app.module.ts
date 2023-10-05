@@ -10,6 +10,8 @@ import { VibesEntity } from './vibe/entities/vibe.entity';
 import { VibesModule } from './vibe/vibe.module';
 import { ApplesEntity } from './appleMusic/entities/apple.entity';
 import { ApplesModule } from './appleMusic/apple.module';
+import { FlosEntity } from './flo/entities/flo.entity';
+import { FlosModule } from './flo/flo.module';
 
 @Module({
   imports: [
@@ -20,13 +22,20 @@ import { ApplesModule } from './appleMusic/apple.module';
       username: 'root',
       password: '1234',
       database: 'testDB',
-      entities: [BookEntity, MelonsEntity, VibesEntity, ApplesEntity],
+      entities: [
+        BookEntity,
+        MelonsEntity,
+        VibesEntity,
+        ApplesEntity,
+        FlosEntity,
+      ],
       synchronize: true,
     }),
     BooksModule,
     MelonsModule,
     VibesModule,
     ApplesModule,
+    FlosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
