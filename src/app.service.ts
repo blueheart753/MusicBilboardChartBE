@@ -26,6 +26,10 @@ export class AppService {
     return 'Hello Spotify';
   }
 
+  getGinie(): string {
+    return 'Hello Ginie';
+  }
+
   getHome(): string {
     return 'Hello Home';
   }

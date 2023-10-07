@@ -35,6 +35,11 @@ export class AppController {
     return this.appService.getSpotify();
   }
 
+  @Get('/ginie')
+  getGinie(): string {
+    return this.appService.getGinie();
+  }
+
   @Get('/')
   getHome(): string {
     return this.appService.getHello();
