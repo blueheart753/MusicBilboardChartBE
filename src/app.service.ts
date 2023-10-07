@@ -30,6 +30,10 @@ export class AppService {
     return 'Hello Ginie';
   }
 
+  getBugs(): string {
+    return 'Hello Bugs';
+  }
+
   getHome(): string {
     return 'Hello Home';
   }

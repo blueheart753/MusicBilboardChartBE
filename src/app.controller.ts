@@ -40,6 +40,11 @@ export class AppController {
     return this.appService.getGinie();
   }
 
+  @Get('/bugs')
+  getBugs(): string {
+    return this.appService.getBugs();
+  }
+
   @Get('/')
   getHome(): string {
     return this.appService.getHello();
