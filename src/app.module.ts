@@ -12,6 +12,8 @@ import { ApplesEntity } from './appleMusic/entities/apple.entity';
 import { ApplesModule } from './appleMusic/apple.module';
 import { FlosEntity } from './flo/entities/flo.entity';
 import { FlosModule } from './flo/flo.module';
+import { SpotifysEntity } from './spotify/entities/spotify.entity';
+import { SpotifysModule } from './spotify/spotify.module';
 
 @Module({
   imports: [
@@ -28,6 +30,7 @@ import { FlosModule } from './flo/flo.module';
         VibesEntity,
         ApplesEntity,
         FlosEntity,
+        SpotifysEntity,
       ],
       synchronize: true,
     }),
@@ -36,6 +39,7 @@ import { FlosModule } from './flo/flo.module';
     VibesModule,
     ApplesModule,
     FlosModule,
+    SpotifysModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -30,6 +30,11 @@ export class AppController {
     return this.appService.getFlo();
   }
 
+  @Get('/spotify')
+  getSpotify(): string {
+    return this.appService.getSpotify();
+  }
+
   @Get('/')
   getHome(): string {
     return this.appService.getHello();

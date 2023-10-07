@@ -22,6 +22,10 @@ export class AppService {
     return 'Hello Flo';
   }
 
+  getSpotify(): string {
+    return 'Hello Spotify';
+  }
+
   getHome(): string {
     return 'Hello Home';
   }
