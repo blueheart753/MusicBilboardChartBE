@@ -19,4 +19,24 @@ export class AppController {
   getMelon(): string {
     return this.appService.getMelon();
   }
+
+  @Get('/apple')
+  getApple(): string {
+    return this.appService.getApple();
+  }
+
+  @Get('/flo')
+  getFlo(): string {
+    return this.appService.getFlo();
+  }
+
+  @Get('/spotify')
+  getSpotify(): string {
+    return this.appService.getSpotify();
+  }
+
+  @Get('/')
+  getHome(): string {
+    return this.appService.getHello();
+  }
 }
