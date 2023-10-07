@@ -45,6 +45,11 @@ export class AppController {
     return this.appService.getBugs();
   }
 
+  @Get('/youtube')
+  getYoutube(): string {
+    return this.appService.getYoutube();
+  }
+
   @Get('/')
   getHome(): string {
     return this.appService.getHello();

@@ -16,6 +16,8 @@ import { GiniesEntity } from './ginie/entities/ginie.entity';
 import { GiniesModule } from './ginie/ginie.module';
 import { BugssEntity } from './bugs/entities/bugs.entity';
 import { BugssModule } from './bugs/bugs.module';
+import { YoutubesEntity } from './youtube/entities/youtube.entity';
+import { YoutubesModule } from './youtube/youtube.module';
 
 @Module({
   imports: [
@@ -34,6 +36,7 @@ import { BugssModule } from './bugs/bugs.module';
         SpotifysEntity,
         GiniesEntity,
         BugssEntity,
+        YoutubesEntity,
       ],
       synchronize: true,
     }),
@@ -44,6 +47,7 @@ import { BugssModule } from './bugs/bugs.module';
     SpotifysModule,
     GiniesModule,
     BugssModule,
+    YoutubesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

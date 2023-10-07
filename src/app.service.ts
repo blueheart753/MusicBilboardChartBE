@@ -34,6 +34,10 @@ export class AppService {
     return 'Hello Bugs';
   }
 
+  getYoutube(): string {
+    return 'Hello Youtube Music';
+  }
+
   getHome(): string {
     return 'Hello Home';
   }
