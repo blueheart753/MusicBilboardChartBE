@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { VibesController } from './vibe.controller';
 import { VibesService } from './vibe.service';
 
-describe('BooksController', () => {
+describe('VibesController', () => {
   let controller: VibesController;
 
   beforeEach(async () => {
