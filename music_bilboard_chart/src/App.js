@@ -1,26 +1,39 @@
 import logo from './/logo.png';
 import './App.css';
-import anime from 'animejs/lib/anime.es.js';
 import React, { useEffect } from 'react';
 
-const animation = require('animejs');
-
 const App = () => {
-  useEffect(() => {
-    const obser = new IntersectionObserver((entries, observer) => {
+  window.addEventListener('load', () => {
+    setTimeout(() => window.scrollTo(0, 0), 100);
+  });
+  const addRemoveClassOnIntersection = (seletor, className) => {
+    const obser = new IntersectionObserver((entries) => {
       entries.forEach((item) => {
         item.isIntersecting
-          ? item.target.classList.add('animeStartMent')
-          : item.target.classList.remove('animeStarMent');
+          ? item.target.classList.add(className)
+          : item.target.classList.remove(className);
       });
     });
-
-    const showMents = document.querySelectorAll('.startMent');
+    const showMents = document.querySelectorAll(seletor);
     showMents.forEach((el) => {
       obser.observe(el);
     });
-  });
+  };
 
+  useEffect(() => {
+    addRemoveClassOnIntersection('.startMent', 'animeStartMent');
+  }, []);
+
+  useEffect(() => {
+    addRemoveClassOnIntersection('.ment_2', 'ment_2Anime');
+  }, []);
+
+  useEffect(() => {
+    addRemoveClassOnIntersection('.ment_3', 'ment_3Anime');
+  }, []);
+  useEffect(() => {
+    addRemoveClassOnIntersection('.ment+p', 'animeMent');
+  }, []);
   return (
     <div className="App">
       <header>
@@ -29,9 +42,22 @@ const App = () => {
         </a>
       </header>
       <div className="mentBox">
+        <div className="custom-shape-divider-top-1700529523">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+              className="shape-fill"
+            ></path>
+          </svg>
+        </div>
         <div className="showMents show_page">
           <h2 className="ment startMent">Hello? This is MBC!</h2>
-          <p>(Music Bilboard Chart)</p>
+          <p>MBC (Music Bilboard Chart)에 오신 것을 환영합니다.</p>
         </div>
       </div>
       <div className="mentBox">
