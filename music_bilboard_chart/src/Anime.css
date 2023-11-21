@@ -1,0 +1,18 @@
+.startMent + p.animeMent {
+  transform: translateX(0);
+  opacity: 1;
+}
+.startMent.animeStartMent {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.ment_2.ment_2Anime {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ment_2 + p.animeMent {
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
