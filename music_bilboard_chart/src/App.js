@@ -1,8 +1,8 @@
 import './static/css/App.css';
 import './static/css/Anime.css';
 import React, { useEffect } from 'react';
-import Header from './Header';
-import Section from './Section';
+import Header from './view/Header';
+import Section from './view/Section';
 
 const App = () => {
   window.addEventListener('load', () => {
