@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.png';
 
 function Header() {
   return (
@@ -17,9 +16,6 @@ function Header() {
           ></path>
         </svg>
       </div>
-      <a href="/">
-        <img src={logo} alt="logo" className="logo" />
-      </a>
     </header>
   );
 }
