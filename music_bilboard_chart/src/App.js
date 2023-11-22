@@ -1,5 +1,5 @@
-import './App.css';
-import './Anime.css';
+import './static/css/App.css';
+import './static/css/Anime.css';
 import React, { useEffect } from 'react';
 import Header from './Header';
 import Section from './Section';
@@ -44,8 +44,8 @@ const App = () => {
     <div className="App">
       <Header />
       <Section
-        titleMent="Hello? This is MBC!"
-        ment="MBC (Music Bilboard Chart)에 오신 것을 환영합니다."
+        titleMent="Hello? Wellcome To MBC!"
+        ment="MBC (Music Bilboard Chart)에 오신 것을 환영합니다!"
         mentClass="ment ment_1 startMent"
       ></Section>
       <Section
