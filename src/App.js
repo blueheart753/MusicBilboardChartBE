@@ -10,8 +10,8 @@ const App = () => {
   });
 
   const addRemoveClassOnIntersection = (selector, className) => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((item) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(item => {
         item.isIntersecting
           ? item.target.classList.add(className)
           : item.target.classList.remove(className);
@@ -19,7 +19,7 @@ const App = () => {
     });
 
     const elements = document.querySelectorAll(selector);
-    elements.forEach((el) => {
+    elements.forEach(el => {
       observer.observe(el);
     });
   };
