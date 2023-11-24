@@ -1,35 +1,26 @@
+// melon.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BugssEntity } from './entities/bugs.entity';
 
 @Injectable()
-export class BugssService {
+export class BugsService {
   constructor(
     @InjectRepository(BugssEntity)
-    private bugssRepository: Repository<BugssEntity>,
+    private readonly bugssRepository: Repository<BugssEntity>,
   ) {}
 
-  async create(bugs: BugssEntity): Promise<BugssEntity> {
-    const newBugs = this.bugssRepository.create(bugs);
-    return await this.bugssRepository.save(newBugs);
-  }
+  async getDataForToday() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to the beginning of the day
 
-  async findAll(): Promise<BugssEntity[]> {
-    return this.bugssRepository.find();
-  }
+    const dataForToday = await this.bugssRepository.find({
+      where: {
+        createdAt: today,
+      },
+    });
 
-  // async findOne(id: number): Promise<BugssEntity> {
-  //   return await this.bugssRepository.findOne(id);
-  // }
-
-  async update(id: number, bugs: BugssEntity): Promise<number> {
-    await this.bugssRepository.update(id, bugs);
-    return id;
-  }
-
-  async remove(id: number): Promise<number> {
-    await this.bugssRepository.delete(id);
-    return id;
+    return dataForToday;
   }
 }

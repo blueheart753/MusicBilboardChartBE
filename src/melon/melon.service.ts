@@ -1,3 +1,4 @@
+// melon.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -7,29 +8,19 @@ import { MelonsEntity } from './entities/melon.entity';
 export class MelonsService {
   constructor(
     @InjectRepository(MelonsEntity)
-    private melonsRepository: Repository<MelonsEntity>,
+    private readonly melonsRepository: Repository<MelonsEntity>,
   ) {}
 
-  async create(melon: MelonsEntity): Promise<MelonsEntity> {
-    const newMelon = this.melonsRepository.create(melon);
-    return await this.melonsRepository.save(newMelon);
-  }
+  async getDataForToday() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to the beginning of the day
 
-  async findAll(): Promise<MelonsEntity[]> {
-    return this.melonsRepository.find();
-  }
+    const dataForToday = await this.melonsRepository.find({
+      where: {
+        createdAt: today,
+      },
+    });
 
-  // async findOne(id: number): Promise<MelonsEntity> {
-  //   return await this.melonsRepository.findOne(id);
-  // }
-
-  async update(id: number, melon: MelonsEntity): Promise<number> {
-    await this.melonsRepository.update(id, melon);
-    return id;
-  }
-
-  async remove(id: number): Promise<number> {
-    await this.melonsRepository.delete(id);
-    return id;
+    return dataForToday;
   }
 }

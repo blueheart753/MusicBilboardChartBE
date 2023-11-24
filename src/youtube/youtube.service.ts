@@ -1,35 +1,26 @@
+// melon.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { YoutubesEntity } from './entities/youtube.entity';
 
 @Injectable()
-export class YoutubesService {
+export class YoutubeService {
   constructor(
     @InjectRepository(YoutubesEntity)
-    private youtubesRepository: Repository<YoutubesEntity>,
+    private readonly youtubesRepository: Repository<YoutubesEntity>,
   ) {}
 
-  async create(youtube: YoutubesEntity): Promise<YoutubesEntity> {
-    const newYoutube = this.youtubesRepository.create(youtube);
-    return await this.youtubesRepository.save(newYoutube);
-  }
+  async getDataForToday() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to the beginning of the day
 
-  async findAll(): Promise<YoutubesEntity[]> {
-    return this.youtubesRepository.find();
-  }
+    const dataForToday = await this.youtubesRepository.find({
+      where: {
+        createdAt: today,
+      },
+    });
 
-  // async findOne(id: number): Promise<YoutubesEntity> {
-  //   return await this.youtubesRepository.findOne(id);
-  // }
-
-  async update(id: number, youtube: YoutubesEntity): Promise<number> {
-    await this.youtubesRepository.update(id, youtube);
-    return id;
-  }
-
-  async remove(id: number): Promise<number> {
-    await this.youtubesRepository.delete(id);
-    return id;
+    return dataForToday;
   }
 }

@@ -1,35 +1,26 @@
+// melon.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { VibesEntity } from './entities/vibe.entity';
 
 @Injectable()
-export class VibesService {
+export class VibeService {
   constructor(
     @InjectRepository(VibesEntity)
-    private vibesRepository: Repository<VibesEntity>,
+    private readonly vibesRepository: Repository<VibesEntity>,
   ) {}
 
-  async create(vibe: VibesEntity): Promise<VibesEntity> {
-    const newVibe = this.vibesRepository.create(vibe);
-    return await this.vibesRepository.save(newVibe);
-  }
+  async getDataForToday() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to the beginning of the day
 
-  async findAll(): Promise<VibesEntity[]> {
-    return this.vibesRepository.find();
-  }
+    const dataForToday = await this.vibesRepository.find({
+      where: {
+        createdAt: today,
+      },
+    });
 
-  // async findOne(id: number): Promise<MelonsEntity> {
-  //   return await this.melonsRepository.findOne(id);
-  // }
-
-  async update(id: number, vibe: VibesEntity): Promise<number> {
-    await this.vibesRepository.update(id, vibe);
-    return id;
-  }
-
-  async remove(id: number): Promise<number> {
-    await this.vibesRepository.delete(id);
-    return id;
+    return dataForToday;
   }
 }
