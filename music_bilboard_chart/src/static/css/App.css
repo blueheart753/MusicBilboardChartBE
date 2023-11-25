@@ -6,6 +6,10 @@
   font-style: normal;
 }
 
+svg {
+  fill: #ffffff;
+}
+
 body::-webkit-scrollbar {
   background: #b9ffec;
   width: 10px;
@@ -146,11 +150,11 @@ header {
 }
 
 .ment_3 {
-  transform: translateY(-100px);
+  transform: translateY(150px);
   color: #fff;
 }
 
 .ment_3 + p {
-  transform: translateY(100px);
+  transform: translateY(-150px);
   color: #fff;
 }
