@@ -19,15 +19,16 @@ export class MelonsController {
     return await this.melonsService.create(melon);
   }
 
+  @Get('today')
+  async getYesterdayData(): Promise<MelonsEntity[]> {
+    const today: Date = new Date();
+    return this.melonsService.findAll({ createdDate: today });
+  }
+
   @Get()
   async findAll(): Promise<MelonsEntity[]> {
     return this.melonsService.findAll();
   }
-
-  // @Get(':id')
-  // async findOne(@Param('id') id: string): Promise<MelonsEntity> {
-  //   return this.melonsService.findOne(+id);
-  // }
 
   @Patch(':id')
   async update(

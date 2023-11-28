@@ -26,4 +26,7 @@ export class BugssEntity {
 
   @DeleteDateColumn()
   deletedAt: Date;
+
+  @Column({ type: 'date', default: () => 'CURRENT_DATE' })
+  createdDate: Date;
 }

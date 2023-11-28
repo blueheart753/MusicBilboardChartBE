@@ -1,35 +1,37 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Repository } from 'typeorm';
 import { SpotifysEntity } from './entities/spotify.entity';
 
 @Injectable()
-export class SpotifysService {
+export class SpotifyssService {
   constructor(
     @InjectRepository(SpotifysEntity)
-    private spotifysRepository: Repository<SpotifysEntity>,
+    private ginieRepository: Repository<SpotifysEntity>,
   ) {}
 
-  async create(spotify: SpotifysEntity): Promise<SpotifysEntity> {
-    const newSpotify = this.spotifysRepository.create(spotify);
-    return await this.spotifysRepository.save(newSpotify);
+  async findAll(filter?: { createdDate?: Date }): Promise<SpotifysEntity[]> {
+    const options: FindManyOptions<SpotifysEntity> = {};
+
+    if (filter && filter.createdDate) {
+      options.where = { createdDate: filter.createdDate };
+    }
+
+    return this.ginieRepository.find(options);
   }
 
-  async findAll(): Promise<SpotifysEntity[]> {
-    return this.spotifysRepository.find();
+  async create(apple: SpotifysEntity): Promise<SpotifysEntity> {
+    const newApple = this.ginieRepository.create(apple);
+    return await this.ginieRepository.save(newApple);
   }
 
-  // async findOne(id: number): Promise<SpotifysEntity> {
-  //   return await this.spotifysRepository.findOne(id);
-  // }
-
-  async update(id: number, spotify: SpotifysEntity): Promise<number> {
-    await this.spotifysRepository.update(id, spotify);
+  async update(id: number, apple: SpotifysEntity): Promise<number> {
+    await this.ginieRepository.update(id, apple);
     return id;
   }
 
   async remove(id: number): Promise<number> {
-    await this.spotifysRepository.delete(id);
+    await this.ginieRepository.delete(id);
     return id;
   }
 }

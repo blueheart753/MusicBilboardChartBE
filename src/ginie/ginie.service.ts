@@ -1,35 +1,37 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Repository } from 'typeorm';
 import { GiniesEntity } from './entities/ginie.entity';
 
 @Injectable()
-export class GiniesService {
+export class GiniessService {
   constructor(
     @InjectRepository(GiniesEntity)
-    private giniesRepository: Repository<GiniesEntity>,
+    private ginieRepository: Repository<GiniesEntity>,
   ) {}
 
-  async create(ginie: GiniesEntity): Promise<GiniesEntity> {
-    const newGinie = this.giniesRepository.create(ginie);
-    return await this.giniesRepository.save(newGinie);
+  async findAll(filter?: { createdDate?: Date }): Promise<GiniesEntity[]> {
+    const options: FindManyOptions<GiniesEntity> = {};
+
+    if (filter && filter.createdDate) {
+      options.where = { createdDate: filter.createdDate };
+    }
+
+    return this.ginieRepository.find(options);
   }
 
-  async findAll(): Promise<GiniesEntity[]> {
-    return this.giniesRepository.find();
+  async create(apple: GiniesEntity): Promise<GiniesEntity> {
+    const newApple = this.ginieRepository.create(apple);
+    return await this.ginieRepository.save(newApple);
   }
 
-  // async findOne(id: number): Promise<GiniesEntity> {
-  //   return await this.melonsRepository.findOne(id);
-  // }
-
-  async update(id: number, ginie: GiniesEntity): Promise<number> {
-    await this.giniesRepository.update(id, ginie);
+  async update(id: number, apple: GiniesEntity): Promise<number> {
+    await this.ginieRepository.update(id, apple);
     return id;
   }
 
   async remove(id: number): Promise<number> {
-    await this.giniesRepository.delete(id);
+    await this.ginieRepository.delete(id);
     return id;
   }
 }

@@ -1,35 +1,37 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Repository } from 'typeorm';
 import { VibesEntity } from './entities/vibe.entity';
 
 @Injectable()
-export class VibesService {
+export class VibessService {
   constructor(
     @InjectRepository(VibesEntity)
-    private vibesRepository: Repository<VibesEntity>,
+    private vibeRepository: Repository<VibesEntity>,
   ) {}
 
-  async create(vibe: VibesEntity): Promise<VibesEntity> {
-    const newVibe = this.vibesRepository.create(vibe);
-    return await this.vibesRepository.save(newVibe);
+  async findAll(filter?: { createdDate?: Date }): Promise<VibesEntity[]> {
+    const options: FindManyOptions<VibesEntity> = {};
+
+    if (filter && filter.createdDate) {
+      options.where = { createdDate: filter.createdDate };
+    }
+
+    return this.vibeRepository.find(options);
   }
 
-  async findAll(): Promise<VibesEntity[]> {
-    return this.vibesRepository.find();
+  async create(apple: VibesEntity): Promise<VibesEntity> {
+    const newApple = this.vibeRepository.create(apple);
+    return await this.vibeRepository.save(newApple);
   }
 
-  // async findOne(id: number): Promise<MelonsEntity> {
-  //   return await this.melonsRepository.findOne(id);
-  // }
-
-  async update(id: number, vibe: VibesEntity): Promise<number> {
-    await this.vibesRepository.update(id, vibe);
+  async update(id: number, apple: VibesEntity): Promise<number> {
+    await this.vibeRepository.update(id, apple);
     return id;
   }
 
   async remove(id: number): Promise<number> {
-    await this.vibesRepository.delete(id);
+    await this.vibeRepository.delete(id);
     return id;
   }
 }

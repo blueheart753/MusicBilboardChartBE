@@ -1,35 +1,37 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, FindManyOptions } from 'typeorm';
 import { ApplesEntity } from './entities/apple.entity';
 
 @Injectable()
-export class ApplesService {
+export class MelonsService {
   constructor(
     @InjectRepository(ApplesEntity)
-    private applesRepository: Repository<ApplesEntity>,
+    private appleRepository: Repository<ApplesEntity>,
   ) {}
 
+  async findAll(filter?: { createdDate?: Date }): Promise<ApplesEntity[]> {
+    const options: FindManyOptions<ApplesEntity> = {};
+
+    if (filter && filter.createdDate) {
+      options.where = { createdDate: filter.createdDate };
+    }
+
+    return this.appleRepository.find(options);
+  }
+
   async create(apple: ApplesEntity): Promise<ApplesEntity> {
-    const newApple = this.applesRepository.create(apple);
-    return await this.applesRepository.save(newApple);
+    const newApple = this.appleRepository.create(apple);
+    return await this.appleRepository.save(newApple);
   }
-
-  async findAll(): Promise<ApplesEntity[]> {
-    return this.applesRepository.find();
-  }
-
-  // async findOne(id: number): Promise<MelonsEntity> {
-  //   return await this.melonsRepository.findOne(id);
-  // }
 
   async update(id: number, apple: ApplesEntity): Promise<number> {
-    await this.applesRepository.update(id, apple);
+    await this.appleRepository.update(id, apple);
     return id;
   }
 
   async remove(id: number): Promise<number> {
-    await this.applesRepository.delete(id);
+    await this.appleRepository.delete(id);
     return id;
   }
 }

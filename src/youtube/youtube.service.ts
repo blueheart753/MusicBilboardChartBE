@@ -1,35 +1,37 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Repository } from 'typeorm';
 import { YoutubesEntity } from './entities/youtube.entity';
 
 @Injectable()
-export class YoutubesService {
+export class YoutubessService {
   constructor(
     @InjectRepository(YoutubesEntity)
-    private youtubesRepository: Repository<YoutubesEntity>,
+    private youtubeRepository: Repository<YoutubesEntity>,
   ) {}
 
+  async findAll(filter?: { createdDate?: Date }): Promise<YoutubesEntity[]> {
+    const options: FindManyOptions<YoutubesEntity> = {};
+
+    if (filter && filter.createdDate) {
+      options.where = { createdDate: filter.createdDate };
+    }
+
+    return this.youtubeRepository.find(options);
+  }
+
   async create(youtube: YoutubesEntity): Promise<YoutubesEntity> {
-    const newYoutube = this.youtubesRepository.create(youtube);
-    return await this.youtubesRepository.save(newYoutube);
+    const newYoutube = this.youtubeRepository.create(youtube);
+    return await this.youtubeRepository.save(newYoutube);
   }
 
-  async findAll(): Promise<YoutubesEntity[]> {
-    return this.youtubesRepository.find();
-  }
-
-  // async findOne(id: number): Promise<YoutubesEntity> {
-  //   return await this.youtubesRepository.findOne(id);
-  // }
-
-  async update(id: number, youtube: YoutubesEntity): Promise<number> {
-    await this.youtubesRepository.update(id, youtube);
+  async update(id: number, apple: YoutubesEntity): Promise<number> {
+    await this.youtubeRepository.update(id, apple);
     return id;
   }
 
   async remove(id: number): Promise<number> {
-    await this.youtubesRepository.delete(id);
+    await this.youtubeRepository.delete(id);
     return id;
   }
 }
