@@ -24,6 +24,15 @@ export class VibesController {
     return this.vibesService.findAll();
   }
 
+  @Get('/today')
+  async findToday(): Promise<VibesEntity[]> {
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    return this.vibesService.findAll({ createdDate: today });
+  }
+
   // @Get(':id')
   // async findOne(@Param('id') id: string): Promise<VibesEntity> {
   //   return this.vibesService.findOne(+id);

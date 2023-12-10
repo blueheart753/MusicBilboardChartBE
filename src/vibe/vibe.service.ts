@@ -4,7 +4,7 @@ import { FindManyOptions, Repository } from 'typeorm';
 import { VibesEntity } from './entities/vibe.entity';
 
 @Injectable()
-export class VibessService {
+export class VibesService {
   constructor(
     @InjectRepository(VibesEntity)
     private vibeRepository: Repository<VibesEntity>,

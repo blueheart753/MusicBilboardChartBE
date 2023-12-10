@@ -24,6 +24,15 @@ export class ApplesController {
     return this.applesService.findAll();
   }
 
+  @Get('/today')
+  async findToday(): Promise<ApplesEntity[]> {
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    return this.applesService.findAll({ createdDate: today });
+  }
+
   // @Get(':id')
   // async findOne(@Param('id') id: string): Promise<VibesEntity> {
   //   return this.vibesService.findOne(+id);

@@ -27,6 +27,6 @@ export class YoutubesEntity {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @Column({ type: 'date', default: () => 'CURRENT_DATE' })
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
   createdDate: Date;
 }

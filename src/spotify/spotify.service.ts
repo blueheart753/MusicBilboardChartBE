@@ -4,7 +4,7 @@ import { FindManyOptions, Repository } from 'typeorm';
 import { SpotifysEntity } from './entities/spotify.entity';
 
 @Injectable()
-export class SpotifyssService {
+export class SpotifysService {
   constructor(
     @InjectRepository(SpotifysEntity)
     private ginieRepository: Repository<SpotifysEntity>,

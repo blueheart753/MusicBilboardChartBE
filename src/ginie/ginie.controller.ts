@@ -24,6 +24,15 @@ export class GiniesController {
     return this.giniesService.findAll();
   }
 
+  @Get('/today')
+  async findToday(): Promise<GiniesEntity[]> {
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    return this.giniesService.findAll({ createdDate: today });
+  }
+
   // @Get(':id')
   // async findOne(@Param('id') id: string): Promise<GiniesEntity> {
   //   return this.giniesService.findOne(+id);

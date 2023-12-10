@@ -4,7 +4,7 @@ import { FindManyOptions, Repository } from 'typeorm';
 import { YoutubesEntity } from './entities/youtube.entity';
 
 @Injectable()
-export class YoutubessService {
+export class YoutubesService {
   constructor(
     @InjectRepository(YoutubesEntity)
     private youtubeRepository: Repository<YoutubesEntity>,

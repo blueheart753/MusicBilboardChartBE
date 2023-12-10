@@ -27,7 +27,7 @@ import { YoutubesModule } from './youtube/youtube.module';
       port: 3306,
       username: 'root',
       password: '1234',
-      database: 'testDB',
+      database: 'musicDB',
       entities: [
         MelonsEntity,
         VibesEntity,

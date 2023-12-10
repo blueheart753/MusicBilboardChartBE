@@ -7,21 +7,21 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { SpotifyssService } from './spotify.service';
+import { SpotifysService } from './spotify.service';
 import { SpotifysEntity } from './entities/spotify.entity';
 
 @Controller('spotify')
 export class SpotifysController {
-  constructor(private spotifyssService: SpotifyssService) {}
+  constructor(private spotifysService: SpotifysService) {}
 
   @Post()
   async create(@Body() spotify: SpotifysEntity): Promise<SpotifysEntity> {
-    return await this.spotifyssService.create(spotify);
+    return await this.spotifysService.create(spotify);
   }
 
   @Get()
   async findAll(): Promise<SpotifysEntity[]> {
-    return this.spotifyssService.findAll();
+    return this.spotifysService.findAll();
   }
 
   // @Get(':id')
@@ -34,11 +34,11 @@ export class SpotifysController {
     @Param('id') id: string,
     @Body() spotify: SpotifysEntity,
   ): Promise<number> {
-    return this.spotifyssService.update(+id, spotify);
+    return this.spotifysService.update(+id, spotify);
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<number> {
-    return this.spotifyssService.remove(+id);
+    return this.spotifysService.remove(+id);
   }
 }

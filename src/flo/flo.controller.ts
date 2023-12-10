@@ -24,6 +24,15 @@ export class FlosController {
     return this.flosService.findAll();
   }
 
+  @Get('/today')
+  async findToday(): Promise<FlosEntity[]> {
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    return this.flosService.findAll({ createdDate: today });
+  }
+
   // @Get(':id')
   // async findOne(@Param('id') id: string): Promise<FlossEntity> {
   //   return this.flosService.findOne(+id);

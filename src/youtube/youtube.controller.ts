@@ -24,6 +24,15 @@ export class YoutubesController {
     return this.youtubesService.findAll();
   }
 
+  @Get('/today')
+  async findToday(): Promise<YoutubesEntity[]> {
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    return this.youtubesService.findAll({ createdDate: today });
+  }
+
   // @Get(':id')
   // async findOne(@Param('id') id: string): Promise<YoutubesEntity> {
   //   return this.youtubesService.findOne(+id);

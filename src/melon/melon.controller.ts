@@ -19,9 +19,12 @@ export class MelonsController {
     return await this.melonsService.create(melon);
   }
 
-  @Get('today')
-  async getYesterdayData(): Promise<MelonsEntity[]> {
-    const today: Date = new Date();
+  @Get('/today')
+  async findToday(): Promise<MelonsEntity[]> {
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
     return this.melonsService.findAll({ createdDate: today });
   }
 

@@ -4,7 +4,7 @@ import { Repository, FindManyOptions } from 'typeorm';
 import { BugssEntity } from './entities/bugs.entity';
 
 @Injectable()
-export class BugsService {
+export class BugssService {
   constructor(
     @InjectRepository(BugssEntity)
     private bugsRepository: Repository<BugssEntity>,

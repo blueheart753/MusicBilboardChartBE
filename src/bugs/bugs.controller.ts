@@ -24,6 +24,15 @@ export class BugssController {
     return this.bugssService.findAll();
   }
 
+  @Get('/today')
+  async findToday(): Promise<BugssEntity[]> {
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    return this.bugssService.findAll({ createdDate: today });
+  }
+
   // @Get(':id')
   // async findOne(@Param('id') id: string): Promise<BugssEntity> {
   //   return this.bugssService.findOne(+id);

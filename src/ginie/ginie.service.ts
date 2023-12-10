@@ -4,7 +4,7 @@ import { FindManyOptions, Repository } from 'typeorm';
 import { GiniesEntity } from './entities/ginie.entity';
 
 @Injectable()
-export class GiniessService {
+export class GiniesService {
   constructor(
     @InjectRepository(GiniesEntity)
     private ginieRepository: Repository<GiniesEntity>,
